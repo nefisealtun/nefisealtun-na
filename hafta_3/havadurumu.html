@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Hava Durumu</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+    * { box-sizing: border-box; }
+
+    body {
+      background: linear-gradient(300deg, #ced1d6, #bfc0c0);
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    input {
+      background-color: #fff;
+      border: none;
+      border-radius: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 1rem;
+      min-width: 300px;
+      margin-bottom: 1rem;
+    }
+
+    input:focus { outline: none; }
+
+    .weather {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    .weather h2 { margin-bottom: 0; }
+    .weather small { display: block; margin-top: 5px; }
+
+    .mesaj {
+      background-color: rgb(255,126,126);
+      box-shadow: 0 4px 50px rgba(0,0,0,0.2);
+      border-radius: 15px;
+      color: black;
+      padding: 1rem;
+      margin: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hava Durumu</h1>
+  <input type="text" id="sehir" placeholder="Şehir giriniz...">
+  <div id="sonuc" class="weather"></div>
+  <div id="mesaj" class="mesaj" style="display:none;"></div>
+
+  <script>
+    const API_KEY = "82b914530b803b3846e3db64f72d5982";
+
+    const sehirInput = document.getElementById("sehir");
+    const mesajDiv = document.getElementById("mesaj");
+    const sonucDiv = document.getElementById("sonuc");
+
+    // Enter tuşu ile arama
+    sehirInput.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        getWeather(sehirInput.value);
+      }
+    });
+
+    async function getWeather(sehir) {
+      if (!sehir) {
+        mesajDiv.style.display = "block";
+        mesajDiv.textContent = "Lütfen şehir giriniz!";
+        sonucDiv.innerHTML = "";
+        return;
+      }
+
+      try {
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${sehir}&appid=${API_KEY}&units=metric&lang=tr`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Şehir bulunamadı");
+
+        const data = await response.json();
+
+        sonucDiv.innerHTML = `
+          <h2>${data.name}, ${data.sys.country}</h2>
+          <p>${data.weather[0].description}</p>
+          <p>🌡 Sıcaklık: ${data.main.temp} °C</p>
+          <small>Hissedilen: ${data.main.feels_like} °C</small>
+        `;
+        mesajDiv.style.display = "none";
+        sehirInput.value = "";
+      } catch (error) {
+        mesajDiv.style.display = "block";
+        mesajDiv.textContent = error.message;
+        sonucDiv.innerHTML = "";
+      }
+    }
+  </script>
+</body>
+</html>

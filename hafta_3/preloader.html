@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preloader ve Yönlendirme</title>
+    
+    <style>
+        /* 1. Preloader Ekranı Stili */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.7s ease-out;
+            color: white;
+            font-family: system-ui;
+            /* MOR ARKA PLAN */
+            background-color: #6c5ce7; 
+        }
+        
+        /* 2. Dönen Çember (Loader) Stili */
+        #loader {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 20px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid #ffffff; 
+            border-radius: 50%;
+            animation: spin 1s linear infinite; 
+        }
+
+        /* 3. Animasyon Tanımı (Dönme) */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 4. Sayfa İçeriği Stili (Yönlendirmeden hemen önce kısa bir an için görünür) */
+        .content {
+            display: none; 
+            text-align: center;
+            padding: 100px 20px;
+            font-family: system-ui;
+            color: #333; 
+        }
+
+        .show-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader">
+        <div id="loader"></div>
+        <p>Yönlendiriliyorsunuz, lütfen bekleyin...</p>
+    </div>
+
+    <div class="content">
+        <h1>Yükleme Tamamlandı!</h1>
+        <p>Şimdi belirtilen siteye yönlendirileceksiniz.</p>
+    </div>
+
+    <script>
+        const preloader = document.getElementById('preloader');
+        const content = document.querySelector('.content');
+        
+        // =========================================================
+        // YÖNLENDİRİLECEK WEB SİTESİNİN ADRESİNİ BURAYA YAZIN
+        const targetUrl = 'https://www.google.com'; 
+        // =========================================================
+
+        function hidePreloaderAndRedirect() {
+            // Eğer preloader zaten gizlenmediyse devam et
+            if (preloader.style.display !== 'none') {
+                preloader.style.opacity = '0';
+                
+                // Preloader'ın kaybolma animasyonu süresi (700ms) bittikten sonra yönlendir
+                setTimeout(function(){
+                    // Yönlendirme işlemi burada gerçekleşir
+                    window.location.href = targetUrl;
+                    
+                    // Normalde bu kısım çalışmaz, çünkü yönlendirme gerçekleşti
+                    preloader.style.display = 'none'; 
+                    content.classList.add('show-content'); 
+                }, 700); 
+            }
+        }
+
+        // 1. Sayfa ve tüm kaynaklar yüklendiğinde çalışır
+        window.addEventListener('load', hidePreloaderAndRedirect);
+
+        // 2. Garanti Zamanlayıcı: Maksimum 2 saniye sonra kapat ve yönlendir
+        // Bu, tarayıcınız resim gibi bir şeyi yükleyemezse bile takılmayı önler.
+        setTimeout(hidePreloaderAndRedirect, 2000); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temel Slider Yapısı (Bilgili)</title>
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background: #999;
+            overflow: hidden;
+        }
+
+        .container{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            width: 1000px;
+            height: 600px;
+            background-color: #555;
+        }
+
+
+        .container .slide .item{
+            width: 200px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            border-radius: 20px;
+            transform: translate(0,-50%); 
+            background-position: 50% 50%;
+            background-size: cover;
+            display: inline-block;
+            transition: .4s;
+        }
+
+        .slide .item:nth-child(1),
+        .slide .item:nth-child(2){
+            top: 0;
+            left: 0;
+            transform: translate(0,0);
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide .item:nth-child(3){
+            left: 70%;
+        }
+
+        .slide .item:nth-child(4){
+            left: calc(70% + 250px);
+        }
+
+        .item .content{
+            position: absolute;
+            top: 50%;
+            left: 100px;
+            width: 300px;
+            text-align: left;
+            color: #eee;
+            transform: translate(0,50%);
+            font-family: system-ui;
+            display: none;
+        }
+
+        .slide .item:nth-child(2) .content{
+            display: block;
+        }
+
+
+        .content .name{
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            opacity: 0;
+            animation: slider 1s ease-in-out 1 forwards;
+        }
+
+        .content .descript{
+            margin-top: 10px;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: slider 1s ease-in-out .3s 1 forwards;
+
+        }
+        .content button{
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0;
+            animation: slider 1s ease-in-out .6s 1 forwards;
+        }
+
+        @keyframes slider {
+            from{
+                opacity: 0;
+                transform: translate(0,100px);
+                filter: blur(30px);
+            }   
+            to{
+                opacity: 1;
+                transform: translate(0);
+                filter: blur(0);
+            }       
+        }
+
+        .button-group{
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            bottom: 20px;
+        }
+
+
+        .button-group button{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            border: none;
+            cursor: pointer;
+            margin: 0 3px;
+            transition: .6s;
+        }
+
+        .button-group .prev{
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        .button-group  .next{
+
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .button-group button:hover{
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+    </head>
+<body>
+
+    <div class="container">
+        <div class="slide">
+            
+            <div class="item" style="background-image: url('https://picsum.photos/1000/600?random=1');">
+                <div class="content">
+                    <div class="name">Görsel 1</div>
+                    <div class="descript">
+                        Bu arka plan olarak kullanılan ilk slaytın açıklamasıdır. Detaylı bilgi içerir.
+                    </div>
+                    <button>Göz At</button>
+                </div>
+            </div>
+            
+            <div class="item" style="background-image: url('https://picsum.photos/1000/600?random=2');">
+                <div class="content">
+                    <div class="name">Ana Sahne</div>
+                    <div class="descript">
+                        Bu, şu anda tam ekranda ve içeriği gösterilen temel slaytımızdır. 
+                        İleri/geri tuşlarına basınca bu kısım değişir.
+                    </div>
+                    <button>Harekete Geç</button>
+                </div>
+            </div>
+            
+            <div class="item" style="background-image: url('https://picsum.photos/1000/600?random=3');">
+                <div class="content">
+                    <div class="name">Keşif 3</div>
+                    <div class="descript">
+                        Üçüncü sıradaki item'ın detayı. Bu bilgi, slayt aktifleşince (2. sıraya gelince) görünür.
+                    </div>
+                    <button>Devam Et</button>
+                </div>
+            </div>
+            
+            <div class="item" style="background-image: url('https://picsum.photos/1000/600?random=4');">
+                <div class="content">
+                    <div class="name">Manzara 4</div>
+                    <div class="descript">
+                        Dördüncü item, yan tarafta küçük bir kart olarak bekliyor.
+                    </div>
+                    <button>İzle</button>
+                </div>
+            </div>
+            
+            <div class="item" style="background-image: url('https://picsum.photos/1000/600?random=5');">
+                <div class="content">
+                    <div class="name">Tema 5</div>
+                    <div class="descript">
+                        Bu içerik, döngü devam ettikçe aktifleşecek.
+                    </div>
+                    <button>İlerlet</button>
+                </div>
+            </div>
+            
+            <div class="item" style="background-image: url('https://picsum.photos/1000/600?random=6');">
+                <div class="content">
+                    <div class="name">Sonuncu 6</div>
+                    <div class="descript">
+                        Listemizdeki son item.
+                    </div>
+                    <button>Bitir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+    </div>
+
+    <script>
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+        const slide = document.querySelector('.slide');
+
+        // NEXT butonu tıklandığında: İlk item'ı en sona taşı (Sola Kaydır)
+        nextButton.onclick = function(){
+            const items = document.querySelectorAll('.item');
+            slide.appendChild(items[0]);
+        }
+
+        // PREV butonu tıklandığında: Son item'ı en başa taşı (Sağa Kaydır)
+        prevButton.onclick = function(){
+            const items = document.querySelectorAll('.item');
+            slide.prepend(items[items.length - 1]);
+        }
+    </script>
+    </body>
+</html>

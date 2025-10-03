@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yılbaşı Geri Sayım</title>
+    <style>
+        body {
+            background: #282e3a;
+            font-family: tahoma;
+        }
+
+        h1 {
+            color: #fff;
+            text-align: center;
+            font-size: 40px;
+            letter-spacing: 5px;
+        }
+
+        #main {
+            width: 850px;
+            margin: 2% auto;
+        }
+
+        #clock span {
+            float: left;
+            text-align: center;
+            font-size: 60px;
+            margin: 0 2.5%;
+            color: #fff;
+            padding: 20px;
+            width: 20%;
+            border-radius: 20px;
+            box-sizing: border-box;
+        }
+
+        #clock span:nth-child(1) { background: #fa5559; }
+        #clock span:nth-child(2) { background: #26c2b9; }
+        #clock span:nth-child(3) { background: #f6bc58; }
+        #clock span:nth-child(4) { background: #2dcb74; }
+
+        #clock::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        #display span {
+            float: left;
+            width: 25%;
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            color: #ddd;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 1px rgba(10, 10, 10, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <h1>Yılbaşına Geri Sayım</h1>
+    <div id="main">
+        <div id="clock">
+            <span id="days">00</span>
+            <span id="hours">00</span>
+            <span id="minutes">00</span>
+            <span id="seconds">00</span>
+        </div>
+        <div id="display">
+            <span>Gün</span>
+            <span>Saat</span>
+            <span>Dakika</span>
+            <span>Saniye</span>
+        </div>
+    </div>
+
+    <script>
+        function updateCountdown() {
+            let now = new Date();
+            let nextYear = now.getFullYear() + 1;
+            let targetDate = new Date(`January 1, ${nextYear} 00:00:00`).getTime();
+            let currentTime = now.getTime();
+            let diff = targetDate - currentTime;
+
+            if (diff <= 0) {
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+                return;
+            }
+
+            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+            document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // hemen başlat
+    </script>
+</body>
+</html>

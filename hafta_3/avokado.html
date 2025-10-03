@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Hero Sayfa</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", calibri;
+    color: #fff;
+}
+
+body{
+ background: linear-gradient(300deg, #014a08, #006400);
+}
+
+.main-content{
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px 10%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Menü */
+nav{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+}
+
+.logo img{
+    width: 70px;
+}
+
+/* Menü stil */
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    font-size: 18px;
+    transition: .4s all ease-in-out;
+    cursor: pointer;
+    color: #fff;
+}
+
+nav ul li a:hover{
+    background-color: #00b90f;
+    border-radius: 20px;
+    color: #000;
+}
+
+/* Hero içerik */
+.hero-content{
+    margin-top: 15%;
+    max-width: 600px;
+    position: relative;
+    z-index: 5;
+}
+
+.hero-content h1{
+    font-size: 70px;
+    color: #fff;
+}
+
+.hero-content h1 span{
+    color: #73e600;
+}
+
+.hero-content p{
+    margin: 2rem 0;
+    line-height: 1.7rem;
+    font-size: 17px;
+}
+
+.hero-content .btn{
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    background-image: linear-gradient(45deg, #73e600, #00b90f);
+    color: #000;
+    font-weight: 400;
+    transition: .4s all;
+}
+
+.hero-content .btn:hover{
+    border-top-right-radius: 30px;
+}
+
+/* Hero görseli */
+.hero-img{
+    width: 400px;
+    position: absolute;
+    top: 20%;
+    right: 5%;
+    z-index: 1;
+}
+
+/* Menü sayfaları */
+.page-content{
+    margin-top: 10%;
+    max-width: 600px;
+    position: relative;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page-content.active{
+    display: block;
+    opacity: 1;
+}
+
+.page-content h1{
+    font-size: 50px;
+}
+
+.page-content p{
+    margin: 2rem 0;
+    line-height: 1.7rem;
+    font-size: 17px;
+}
+</style>
+</head>
+<body>
+
+<div class="main-content">
+
+    <!-- Menü -->
+    <nav>
+      <div class="logo">
+        <img src="logo.png" alt="Logo">
+      </div>
+      <ul>
+        <li><a onclick="showPage('anasayfa')">Anasayfa</a></li>
+        <li><a onclick="showPage('hakkimizda')">Hakkımızda</a></li>
+        <li><a onclick="showPage('iletisim')">İletişim</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero (Ana sayfa içeriği) -->
+    <div class="hero-content" id="anasayfa">
+      <h1>Hoşgeldiniz <span>Web Sitemize</span></h1>
+      <p>Burada en iyi hizmetleri sunuyoruz. Menüden diğer sayfalara geçiş yapabilirsiniz.</p>
+      <a href="#iletisim" class="btn" onclick="showPage('iletisim')">İletişim</a>
+    </div>
+
+    <!-- Menü sayfaları -->
+    <div id="hakkimizda" class="page-content">
+      <h1>Hakkımızda</h1>
+      <p>Biz çevreci, güvenilir ve yenilikçi bir ekibiz. Müşteri memnuniyeti önceliğimizdir.</p>
+    </div>
+
+    <div id="iletisim" class="page-content">
+      <h1>İletişim</h1>
+      <p>Bize ulaşmak için info@websitem.com adresine mail atabilirsiniz veya formu doldurabilirsiniz.</p>
+    </div>
+
+    <!-- Hero Görsel -->
+    <img src="hero.png" alt="Hero" class="hero-img">
+
+</div>
+
+<script>
+function showPage(id){
+    const pages = ['anasayfa','hakkimizda','iletisim'];
+    pages.forEach(page => {
+        const el = document.getElementById(page);
+        if(page === id){
+            el.style.display = 'block';
+            el.style.opacity = 1;
+        }else{
+            el.style.display = 'none';
+            el.style.opacity = 0;
+        }
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Hero Sayfa</title>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", calibri;
+    color: #fff;
+}
+
+.main-content{
+    background-color: #3E3232;
+    min-height: 100vh;
+    color: #A87C7C;
+    overflow: hidden;
+    padding: 10px 10%;
+}
+
+/* Menü */
+nav{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .logo{
+    color: #d4b3b3;
+    font-size: 30px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+
+nav ul li a{
+    color: #A87C7C;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: .5s all ease-in;
+    cursor: pointer;
+}
+
+nav ul li a:hover{
+    background-color: #A87C7C;
+    color: #3E3232;
+}
+
+/* Hero içerik */
+.content{
+    margin-top: 10%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.content-left{
+    max-width: 50%;
+}
+
+.content-left h1{
+    font-size: 65px;
+    font-weight: 500;
+}
+
+.content-left h1 span{
+    color: #d4b3b3;
+}
+
+.content-left p{
+    margin: 2rem 0;
+    font-size: 24px;
+    font-weight: 200;
+    line-height: 1.7;
+}
+
+/* Butonlar */
+.btn{
+    color: #A87C7C;
+    border: 2px solid #A87C7C;
+    padding: 10px 45px;
+    border-radius: 40px;
+    font-size: 25px;
+    text-decoration: none;
+    margin: 10px 10px 10px 0;
+    display: inline-block;
+    transition: .5s all ease-in;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color: #A87C7C;
+    color: #503C3C;
+}
+
+/* Sağda kayan görsel */
+.right{
+    border-top-right-radius: 50px;
+    border-top-left-radius: 120px;
+    border-bottom-left-radius: 60px;
+    border-bottom-right-radius: 5px;
+    background-color:#A87C7C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right img{
+    width: 370px;
+    animation: move 4s linear infinite;
+}
+
+@keyframes move {
+    0%, 100%{ transform: translateX(-50px);}
+    50%{ transform: translateX(50px);}
+}
+
+/* Sayfalar */
+.page-content{
+    margin-top: 10%;
+    max-width: 600px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.page-content.active{
+    display: block;
+    opacity: 1;
+}
+
+.page-content h1{ font-size: 50px; }
+.page-content p{ margin: 2rem 0; line-height: 1.7rem; font-size: 17px; }
+</style>
+</head>
+<body>
+
+<div class="main-content">
+
+    <!-- Menü -->
+    <nav>
+      <div class="logo">LOGO</div>
+      <ul>
+        <li><a onclick="showPage('anasayfa')">Anasayfa</a></li>
+        <li><a onclick="showPage('hakkimizda')">Hakkımızda</a></li>
+        <li><a onclick="showPage('iletisim')">İletişim</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero (Ana sayfa) -->
+    <div class="content" id="anasayfa">
+        <div class="content-left">
+            <h1>Hoşgeldiniz <span>Web Sitemize</span></h1>
+            <p>Burada en iyi hizmetleri sunuyoruz. Menüden diğer sayfalara geçiş yapabilirsiniz.</p>
+            
+            <!-- Kahve çeşitleri -->
+            <div>
+                <a class="btn" onclick="showPage('sayfa1')">Espresso</a>
+                <a class="btn" onclick="showPage('sayfa2')">Cappuccino</a>
+                <a class="btn" onclick="showPage('sayfa3')">Latte</a>
+            </div>
+            
+            <!-- Buy Now butonu kahve çeşitlerinin altında -->
+            <div>
+                <a class="btn" onclick="showPage('buybow')">Buy Now</a>
+            </div>
+        </div>
+        <div class="right">
+            <img src="hero.png" alt="Hero">
+        </div>
+    </div>
+
+    <!-- Menü sayfaları -->
+    <div id="hakkimizda" class="page-content">
+      <h1>Hakkımızda</h1>
+      <p>Biz çevreci, güvenilir ve yenilikçi bir ekibiz. Müşteri memnuniyeti önceliğimizdir.</p>
+    </div>
+
+    <div id="iletisim" class="page-content">
+      <h1>İletişim</h1>
+      <p>Bize ulaşmak için info@websitem.com adresine mail atabilirsiniz veya formu doldurabilirsiniz.</p>
+    </div>
+
+    <!-- Kahve sayfaları -->
+    <div id="sayfa1" class="page-content">
+      <h1>Espresso</h1>
+      <p>Espresso, yoğun aroması ve küçük fincanda sunulan konsantre kahve çeşididir. Sabahları hızlı bir enerji için idealdir.</p>
+    </div>
+
+    <div id="sayfa2" class="page-content">
+      <h1>Cappuccino</h1>
+      <p>Cappuccino, eşit oranlarda espresso, süt ve süt köpüğünden oluşur. Kahve keyfini yumuşak ve kremamsı bir tatla sunar.</p>
+    </div>
+
+    <div id="sayfa3" class="page-content">
+      <h1>Latte</h1>
+      <p>Latte, bol süt ile hazırlanan yumuşak içimli kahvedir. Üzerine yapılan latte art ile görselliği de ön plana çıkar.</p>
+    </div>
+
+    <!-- Buy Now sayfası -->
+    <div id="buybow" class="page-content">
+      <h1>Buy Now</h1>
+      <p>Bu sayfada kahve paketlerini satın alabilirsiniz. Farklı kahve seçenekleri ve promosyonlar burada yer alıyor.</p>
+    </div>
+
+</div>
+
+<script>
+function showPage(id){
+    const pages = ['anasayfa','hakkimizda','iletisim','sayfa1','sayfa2','sayfa3','buybow'];
+    pages.forEach(page => {
+        const el = document.getElementById(page);
+        if(page === id){
+            if(page === 'anasayfa') el.style.display = 'flex';
+            else el.style.display = 'block';
+            el.style.opacity = 1;
+        }else{
+            el.style.display = 'none';
+            el.style.opacity = 0;
+        }
+    });
+}
+</script>
+
+</body>
+</html>
