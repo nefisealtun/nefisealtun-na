@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+  <CD>
+    <TITLE>Empire Burlesque</TITLE>
+    <ARTIST>Bob Dylan</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <YEAR>1985</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Greatest Hits</TITLE>
+    <ARTIST>Dolly Parton</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <YEAR>1982</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Still Got The Blues</TITLE>
+    <ARTIST>Gary Moore</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <YEAR>1990</YEAR>
+  </CD>
+  <CD>
+    <TITLE>The Wall</TITLE>
+    <ARTIST>Pink Floyd</ARTIST>
+    <COUNTRY>UK</COUNTRY>
+    <YEAR>1979</YEAR>
+  </CD>
+  <CD>
+    <TITLE>Thriller</TITLE>
+    <ARTIST>Michael Jackson</ARTIST>
+    <COUNTRY>USA</COUNTRY>
+    <YEAR>1982</YEAR>
+  </CD>
+</CATALOG>

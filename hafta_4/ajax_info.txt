@@ -1,0 +1,2 @@
+<p>Bu metin , AJAX isteği ile sunucudan başarıyla yüklendi!</p>
+<p>Sayfa yenilenmedi , sadece bu alan güncellendi.</p>

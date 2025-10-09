@@ -1,0 +1,2 @@
+<h1>AJAX başarıyla çalıştı!</h1>
+<p>Bu içerik , sayfa yenilenmeden sunucudan (ajax_info2.txt) yüklendi.</p>

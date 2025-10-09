@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MENU>
+  <ITEM>
+    <NAME>Mercimek Çorbası</NAME>
+    <PRICE>45 TL</PRICE>
+    <CALORIES>250</CALORIES>
+  </ITEM>
+  <ITEM>
+    <NAME>Tavuk Sote</NAME>
+    <PRICE>180 TL</PRICE>
+    <CALORIES>550</CALORIES>
+  </ITEM>
+  <ITEM>
+    <NAME>Sebzeli Güveç</NAME>
+    <PRICE>165 TL</PRICE>
+    <CALORIES>420</CALORIES>
+  </ITEM>
+  <ITEM>
+    <NAME>Künefe</NAME>
+    <PRICE>75 TL</PRICE>
+    <CALORIES>380</CALORIES>
+  </ITEM>
+</MENU>

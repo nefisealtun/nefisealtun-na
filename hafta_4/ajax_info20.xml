@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CUSTOMERS>
+  <CUSTOMER>
+    <ID>C001</ID>
+    <COMPANY>Alfreds Futterkiste</COMPANY>
+    <CONTACT>Maria Anders</CONTACT>
+    <COUNTRY>Germany</COUNTRY>
+  </CUSTOMER>
+  <CUSTOMER>
+    <ID>C002</ID>
+    <COMPANY>North/South</COMPANY>
+    <CONTACT>Simon Crowther</CONTACT>
+    <COUNTRY>UK</COUNTRY>
+  </CUSTOMER>
+  <CUSTOMER>
+    <ID>C003</ID>
+    <COMPANY>Wolski Zajazd</COMPANY>
+    <CONTACT>Zbyszek Piestrzeniewicz</CONTACT>
+    <COUNTRY>Poland</COUNTRY>
+  </CUSTOMER>
+</CUSTOMERS>

@@ -1,0 +1,2 @@
+<h1>AJAX Başarılı!</h1>
+<p>Bu metin , XMLHttpRequest kullanılarak sunucudan çekilmiştir.</p>

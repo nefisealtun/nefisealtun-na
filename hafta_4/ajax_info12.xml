@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MENU>
+  <ITEM>
+    <FOOD>Ana Yemek</FOOD>
+    <NAME>İskender Kebap</NAME>
+    <PRICE>150 TL</PRICE>
+  </ITEM>
+  <ITEM>
+    <FOOD>Çorba</FOOD>
+    <NAME>Mercimek Çorbası</NAME>
+    <PRICE>45 TL</PRICE>
+  </ITEM>
+  <ITEM>
+    <FOOD>Tatlı</FOOD>
+    <NAME>Sütlaç</NAME>
+    <PRICE>60 TL</PRICE>
+  </ITEM>
+  <ITEM>
+    <FOOD>Salata</FOOD>
+    <NAME>Çoban Salata</NAME>
+    <PRICE>55 TL</PRICE>
+  </ITEM>
+  <ITEM>
+    <FOOD>Ara Sıcak</FOOD>
+    <NAME>Sigara Böreği</NAME>
+    <PRICE>70 TL</PRICE>
+  </ITEM>
+</MENU>

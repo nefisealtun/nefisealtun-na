@@ -1,0 +1,2 @@
+<h1>Başarılı!</h1>
+<p>Bu, en basit AJAX (Asenkron) isteği ile yüklenen içeriktir.</p>
