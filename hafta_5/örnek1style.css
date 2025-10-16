@@ -1,0 +1,93 @@
+body {
+    /* 'sans-seif' -> 'sans-serif' olarak düzeltildi */
+    font: 14px Arial, Helvetica, sans-serif;
+    background: #eee;
+    width: 900px;
+    margin: 100px auto;
+    color: #666;
+}
+
+a {
+    color: #333;
+}
+
+#nav {
+    margin: 0;
+    padding: 6px 0 6px 0; 
+    background: #2b2b2b;
+    line-height: 100%;
+    display: inline-block;
+}
+
+#nav li {
+    margin: 0 5px;
+    padding: 0 8px; 
+    float: left;
+    position: relative;
+    list-style: none;
+}
+
+#nav a {
+    font-weight: bold;
+    color: #e2e5e5; 
+    text-decoration: none;
+    display: block;
+    padding: 8px 20px;
+    margin: 0;
+}
+
+#nav a:hover { 
+    background: #000; 
+    color: #fff; 
+}
+
+#nav .current a, 
+#nav li:hover > a {
+    background: #ddd;
+    color: #666;
+    border-top: 2px solid #df631f; 
+}
+
+#nav ul a, 
+#nav li:hover li a {
+    background: none; 
+    border: none;
+    color: #666;
+    font-weight: normal; /* Normal font ağırlığı */
+    padding: 8px 10px; /* Alt menü için iç boşluk ayarı */
+}
+
+#nav ul a:hover { 
+       color: black !important; 
+}
+
+#nav ul {
+    display: none;
+    margin: 0;
+    padding: 0;
+    width: 185px;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: #ddd;
+    border: 1px solid #d4b4b4; 
+}
+
+#nav li:hover > ul { 
+       display: block; 
+}
+
+#nav ul li {
+    float: none; 
+    margin: 0;
+    padding: 0;
+}
+
+#nav ul ul { 
+    left: 180px; 
+    top: -1px; 
+}
+
+#nav li.open > ul {
+    display: block;
+}
